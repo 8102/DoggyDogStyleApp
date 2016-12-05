@@ -3,10 +3,10 @@ import { render } from 'react-dom'
 import App from './App.jsx'
 
 document.addEventListener('DOMContentLoaded', function(){
-	document.addEventListener('deviceready', function(){
-		render(
-			<App />,
-			document.getElementById('root')
-		)
-	})
+  document.addEventListener('deviceready', function(){
+    render(
+      <App />,
+      document.getElementById('root')
+    )
+  })
 })

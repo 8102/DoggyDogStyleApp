@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="se.ju.larpet" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-	<name>phonegap-react-tempte</name>
+	<name>Doggy Dog Style App</name>
 	<description>
-		A template for building a PhoneGap app using React.
+		This is the Doggy Dog Style App
 	</description>
-	<author email="Peter.Larsson-Green@ju.se">
-		Peter Larsson-Green
+	<author email="hugo.prenat@epitech.eu">
+		Hugo Prenat
 	</author>
 	<content src="index.html" />
 	<access origin="*" />
