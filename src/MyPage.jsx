@@ -10,11 +10,9 @@ export default class MyPage extends React.Component {
 
     componentWillMount() {
         firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                    this.setState({auth: true});
-                }
-            else {}
-        });
+            if(user) 
+                this.setState({auth: true});
+        })
     }
 
     render() {
@@ -37,44 +35,39 @@ class SignUpComponent extends React.Component{
 		super(props);
         this.state = {mail:"", pass:""};
 	}
+    
     render(){
-        return(
+            return(
                 <div>
                     <div id="SignUp">
-                        <h1>Sign Up</h1>
-                        <form>
-                            <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
-                            <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
-                            <button type="submit" onClick={this.newUser.bind(this)}>Sign Up!</button><br/>
-                        </form>
-                    </div>
-                    <div id="SignIn">
-                        <h1>Sign In</h1>
-                        <form>
-                            <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
-                            <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
-                            <button type="submit" onClick={this.authVerif.bind(this)}>Log in!</button><br/>
-                        </form>
+                        <h1 id="title">Sign Up</h1>
+                            <form id="signUpForm">
+                                <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
+                                <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
+                                <button id="submit" type="submit" onClick={this.newUser.bind(this)}>Sign Up!</button><br/>
+                                <p> Already have an account?</p>
+                                <button id="submit" type="submit" onClick={this.authVerif.bind(this)}>Sign In</button><br/>
+                            </form>
                     </div>
                 </div>
             )
-        }
-
+    }
+    
     handleEmailChange(e) {
-        this.setState({mail: e.target.value});
+        this.setState({mail: e.target.value})
     }
 
     handlePassChange(e) {
-        this.setState({pass: e.target.value});
+        this.setState({pass: e.target.value})
     }
 
     newUser(e) {
-        e.preventDefault();
+        e.preventDefault()
         firebase.auth().createUserWithEmailAndPassword(this.state.mail, this.state.pass).then(function(user) {
             alert(user.email)
         }).catch(function(error){
             alert(error.message)
-        });
+        })
     }
 
     authVerif(e) {
@@ -108,5 +101,4 @@ class SignedInComponent extends React.Component{
     logOut(e) {
         firebase.auth().signOut();
     }
-
 }

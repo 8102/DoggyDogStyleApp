@@ -68,7 +68,7 @@ export default class App extends React.Component{
         <div id="content">
             {content}
         </div>
-*        <div className="footer">
+       <div className="footer">
           <ul className="footer-list" role="nav">
             <button onClick={this.first.bind(this)}>Events</button>
             <button onClick={this.second.bind(this)}>My Page</button>
