@@ -1,12 +1,6 @@
 import React from 'react';
-import firebase from 'firebase'
+import firebase from 'firebase';
 
-var myFirebase = firebase.initializeApp({
-    apiKey: " AIzaSyCdoJ5Q10uHkmUHMOiI_l-q05CmraQ0yMc",
-authDomain: "lab3-462d5.firebaseio.com",
-databaseURL: "https://lab3-462d5.firebaseio.com/",
-storageBucket: "gs://lab3-462d5.appspot.com",
-})
 
 export default class MyPage extends React.Component {
     constructor(props) {
@@ -15,7 +9,7 @@ export default class MyPage extends React.Component {
     }
 
     componentWillMount() {
-        myFirebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                     this.setState({auth: true});
                 }
@@ -29,7 +23,7 @@ export default class MyPage extends React.Component {
           content = <SignedInComponent/>;
       else
           content = <SignUpComponent/>;
-        
+
         return (
         <div id="mainContent">
             <h1>Welcome on My Page !</h1>
@@ -45,7 +39,7 @@ class SignUpComponent extends React.Component{
         this.state = {mail:"", pass:""};
 	}
     render(){
-        
+
         return(
             <div>
                 <div id="SignUp" align="left">
@@ -67,35 +61,35 @@ class SignUpComponent extends React.Component{
             </div>
         )
     }
-    
+
     handleEmailChange(e) {
         this.setState({mail: e.target.value});
     }
 
     handlePassChange(e) {
-        this.setState({pass: e.target.value});       
+        this.setState({pass: e.target.value});
     }
-  
+
     newUser(e) {
         e.preventDefault();
-        myFirebase.auth().createUserWithEmailAndPassword(this.state.mail, this.state.pass).then(function(user) {
+        FbApp.auth().createUserWithEmailAndPassword(this.state.mail, this.state.pass).then(function(user) {
             alert(user.email)
         }).catch(function(error){
-            alert(error.message)    
+            alert(error.message)
         });
     }
 
     authVerif(e) {
         e.preventDefault();
-        myFirebase.auth().signInWithEmailAndPassword(
+        FbApp.auth().signInWithEmailAndPassword(
             this.state.mail,
             this.state.pass
         ).then(function(user){
             alert("Signed in");
         }).catch(function(error){
             alert(error.message)});
-    }                 
-    
+    }
+
 }
 
 class SignedInComponent extends React.Component{
@@ -105,17 +99,17 @@ class SignedInComponent extends React.Component{
 	}
 
     render(){
-        
+
         return(
             <div>
                 <h1>Your Account</h1>
                 <button onClick={this.logOut.bind(this)}>Sign out</button>
-            </div>        
+            </div>
         )
     }
-    
+
     logOut(e) {
-        myFirebase.auth().signOut();
+        FbApp.auth().signOut();
     }
-    
+
 }
