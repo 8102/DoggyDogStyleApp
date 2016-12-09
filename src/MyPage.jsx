@@ -11,7 +11,7 @@ storageBucket: "gs://lab3-462d5.appspot.com",
 export default class MyPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { auth: false };
+        this.state = {auth: false};
     }
 
     componentWillMount() {
@@ -29,7 +29,6 @@ export default class MyPage extends React.Component {
           content = <SignedInComponent/>;
       else
           content = <SignUpComponent/>;
-        
         return (
         <div id="mainContent">
             <h1>Welcome on My Page !</h1>
@@ -45,28 +44,26 @@ class SignUpComponent extends React.Component{
         this.state = {mail:"", pass:""};
 	}
     render(){
-        
         return(
-            <div>
-                <div id="SignUp" align="left">
-                    <h1>Sign Up</h1>
-                    <form>
-                        <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
-                        <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
-                        <button type="submit" onClick={this.newUser.bind(this)}>Sign Up!</button><br/>
-                    </form>
+                <div>
+                    <div id="SignUp">
+                        <h1>Sign Up</h1>
+                        <form>
+                            <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
+                            <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
+                            <button type="submit" onClick={this.newUser.bind(this)}>Sign Up!</button><br/>
+                        </form>
+                    </div>
+                    <div id="SignIn">
+                        <h1>Sign In</h1>
+                        <form>
+                            <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
+                            <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
+                            <button type="submit" onClick={this.authVerif.bind(this)}>Log in!</button><br/>
+                        </form>
+                    </div>
                 </div>
-                <div id="SignIn" align="right">
-                    <h1>Sign In</h1>
-                    <form>
-                        <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
-                        <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
-                        <button type="submit" onClick={this.authVerif.bind(this)}>Log in!</button><br/>
-                    </form>
-                </div>
-            </div>
-        )
-    }
+    )}
     
     handleEmailChange(e) {
         this.setState({mail: e.target.value});
@@ -105,7 +102,6 @@ class SignedInComponent extends React.Component{
 	}
 
     render(){
-        
         return(
             <div>
                 <h1>Your Account</h1>
@@ -116,6 +112,7 @@ class SignedInComponent extends React.Component{
     
     logOut(e) {
         myFirebase.auth().signOut();
+        this.setState({auth:false})
     }
     
 }

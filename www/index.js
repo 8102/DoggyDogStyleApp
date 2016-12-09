@@ -21649,7 +21649,7 @@
 	          content = _react2.default.createElement(_Main2.default, null);
 	      }
 	
-	      return _react2.default.createElement('div', null, content, _react2.default.createElement('div', { className: 'footer' }, _react2.default.createElement('ul', { className: 'footer-list', role: 'nav' }, _react2.default.createElement('button', { onClick: this.first.bind(this) }, 'Events'), _react2.default.createElement('button', { onClick: this.second.bind(this) }, 'My Page'), _react2.default.createElement('button', { onClick: this.third.bind(this) }, 'Map'), _react2.default.createElement('button', { onClick: this.fourth.bind(this) }, 'News'))));
+	      return _react2.default.createElement('div', null, _react2.default.createElement('div', { id: 'content' }, content), _react2.default.createElement('div', { className: 'footer' }, _react2.default.createElement('ul', { className: 'footer-list', role: 'nav' }, _react2.default.createElement('button', { onClick: this.first.bind(this) }, 'Events'), _react2.default.createElement('button', { onClick: this.second.bind(this) }, 'My Page'), _react2.default.createElement('button', { onClick: this.third.bind(this) }, 'Map'), _react2.default.createElement('button', { onClick: this.fourth.bind(this) }, 'News'))));
 	    }
 	  }]);
 	
@@ -22021,7 +22021,6 @@
 	        value: function render() {
 	            var content = null;
 	            if (this.state.auth == true) content = _react2.default.createElement(SignedInComponent, null);else content = _react2.default.createElement(SignUpComponent, null);
-	
 	            return _react2.default.createElement('div', { id: 'mainContent' }, _react2.default.createElement('h1', null, 'Welcome on My Page !'), content);
 	        }
 	    }]);
@@ -22046,8 +22045,7 @@
 	    _createClass(SignUpComponent, [{
 	        key: 'render',
 	        value: function render() {
-	
-	            return _react2.default.createElement('div', null, _react2.default.createElement('div', { id: 'SignUp', align: 'left' }, _react2.default.createElement('h1', null, 'Sign Up'), _react2.default.createElement('form', null, _react2.default.createElement('p', null, 'Email: ', _react2.default.createElement('input', { type: 'text', onChange: this.handleEmailChange.bind(this) })), _react2.default.createElement('p', null, 'Pass: ', _react2.default.createElement('input', { type: 'password', onChange: this.handlePassChange.bind(this) })), _react2.default.createElement('button', { type: 'submit', onClick: this.newUser.bind(this) }, 'Sign Up!'), _react2.default.createElement('br', null))), _react2.default.createElement('div', { id: 'SignIn', align: 'right' }, _react2.default.createElement('h1', null, 'Sign In'), _react2.default.createElement('form', null, _react2.default.createElement('p', null, 'Email: ', _react2.default.createElement('input', { type: 'text', onChange: this.handleEmailChange.bind(this) })), _react2.default.createElement('p', null, 'Pass: ', _react2.default.createElement('input', { type: 'password', onChange: this.handlePassChange.bind(this) })), _react2.default.createElement('button', { type: 'submit', onClick: this.authVerif.bind(this) }, 'Log in!'), _react2.default.createElement('br', null))));
+	            return _react2.default.createElement('div', null, _react2.default.createElement('div', { id: 'SignUp' }, _react2.default.createElement('h1', null, 'Sign Up'), _react2.default.createElement('form', null, _react2.default.createElement('p', null, 'Email: ', _react2.default.createElement('input', { type: 'text', onChange: this.handleEmailChange.bind(this) })), _react2.default.createElement('p', null, 'Pass: ', _react2.default.createElement('input', { type: 'password', onChange: this.handlePassChange.bind(this) })), _react2.default.createElement('button', { type: 'submit', onClick: this.newUser.bind(this) }, 'Sign Up!'), _react2.default.createElement('br', null))), _react2.default.createElement('div', { id: 'SignIn' }, _react2.default.createElement('h1', null, 'Sign In'), _react2.default.createElement('form', null, _react2.default.createElement('p', null, 'Email: ', _react2.default.createElement('input', { type: 'text', onChange: this.handleEmailChange.bind(this) })), _react2.default.createElement('p', null, 'Pass: ', _react2.default.createElement('input', { type: 'password', onChange: this.handlePassChange.bind(this) })), _react2.default.createElement('button', { type: 'submit', onClick: this.authVerif.bind(this) }, 'Log in!'), _react2.default.createElement('br', null))));
 	        }
 	    }, {
 	        key: 'handleEmailChange',
@@ -22099,13 +22097,13 @@
 	    _createClass(SignedInComponent, [{
 	        key: 'render',
 	        value: function render() {
-	
 	            return _react2.default.createElement('div', null, _react2.default.createElement('h1', null, 'Your Account'), _react2.default.createElement('button', { onClick: this.logOut.bind(this) }, 'Sign out'));
 	        }
 	    }, {
 	        key: 'logOut',
 	        value: function logOut(e) {
 	            myFirebase.auth().signOut();
+	            this.setState({ auth: false });
 	        }
 	    }]);
 	
