@@ -1,10 +1,12 @@
 import React from 'react';
+import firebase from 'firebase';
 
 import Main from './Main.jsx';
 import Events from './Events.jsx';
 import Maps from './Maps.jsx';
 import News from './News.jsx';
 import MyPage from './MyPage.jsx';
+import myFirebase from './FirebaseApp.jsx';
 
 export default class App extends React.Component{
 
@@ -34,29 +36,42 @@ export default class App extends React.Component{
 
   render(){
     var content = <Main/>;
+    var header = "Main";
 
     switch (this.state.page) {
       case "events":
         content = <Events/>;
+        header = "Events";
         break;
       case "myPage":
         content = <MyPage/>;
+        header = "My Page";
         break;
       case "map":
         content = <Maps/>;
+        header = "Map";
         break;
       case "news":
         content = <News/>;
+        header = "News";
         break;
       default:
         content = <Main/>;
+        header = "Events";
     }
 
     return (
       <div>
+<<<<<<< HEAD
         <div id="content">
             {content}
         </div>
+=======
+        <div className="header">
+          <h1>{header}</h1>
+        </div>
+        {content}
+>>>>>>> 02432c07643d4ef5eed00c2429210c2f046ce97b
         <div className="footer">
           <ul className="footer-list" role="nav">
             <button onClick={this.first.bind(this)}>Events</button>
