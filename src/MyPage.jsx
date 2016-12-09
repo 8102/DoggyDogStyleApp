@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase'
 
-var firebase = firebase.initializeApp({
+var myFirebase = firebase.initializeApp({
     apiKey: " AIzaSyCdoJ5Q10uHkmUHMOiI_l-q05CmraQ0yMc",
 authDomain: "lab3-462d5.firebaseio.com",
 databaseURL: "https://lab3-462d5.firebaseio.com/",
@@ -10,26 +10,27 @@ storageBucket: "gs://lab3-462d5.appspot.com",
 
 export default class MyPage extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = {auth: true }
+        super(props);
+        this.state = { auth: false };
     }
 
     componentWillMount() {
-        firebase.auth().onAuthStateChanged((user) => {
+        myFirebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                    this.setState({auth: true})
+                    this.setState({auth: true});
                 }
             else {}
-        })
+        });
+    }
 
-  render() {
-      var content = null
+    render() {
+      var content = null;
       if (this.state.auth == true)
-          content = <SignedInComponent/>
+          content = <SignedInComponent/>;
       else
-          content = <SignUpComponent/>
-              
-    return (
+          content = <SignUpComponent/>;
+        
+        return (
         <div id="mainContent">
             <h1>Welcome on My Page !</h1>
             { content }
@@ -40,14 +41,14 @@ export default class MyPage extends React.Component {
 
 class SignUpComponent extends React.Component{
     constructor(props){
-		super(props)
-        this.state = {mail:"", pass:""}
+		super(props);
+        this.state = {mail:"", pass:""};
 	}
     render(){
         
         return(
             <div>
-                <div id="SignUp">
+                <div id="SignUp" align="left">
                     <h1>Sign Up</h1>
                     <form>
                         <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
@@ -55,8 +56,8 @@ class SignUpComponent extends React.Component{
                         <button type="submit" onClick={this.newUser.bind(this)}>Sign Up!</button><br/>
                     </form>
                 </div>
-                <div id="SignIp">
-                    <h1>Sign Ip</h1>
+                <div id="SignIn" align="right">
+                    <h1>Sign In</h1>
                     <form>
                         <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
                         <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
@@ -68,39 +69,39 @@ class SignUpComponent extends React.Component{
     }
     
     handleEmailChange(e) {
-        this.setState({mail: e.target.value})
+        this.setState({mail: e.target.value});
     }
 
     handlePassChange(e) {
-        this.setState({pass: e.target.value})        
+        this.setState({pass: e.target.value});       
     }
   
     newUser(e) {
-        e.preventDefault()
-        firebase.auth().createUserWithEmailAndPassword(this.state.mail, this.state.pass).then(function(user) {
+        e.preventDefault();
+        myFirebase.auth().createUserWithEmailAndPassword(this.state.mail, this.state.pass).then(function(user) {
             alert(user.email)
         }).catch(function(error){
             alert(error.message)    
-        })
+        });
     }
 
     authVerif(e) {
-        e.preventDefault()
-        firebase.auth().signInWithEmailAndPassword(
+        e.preventDefault();
+        myFirebase.auth().signInWithEmailAndPassword(
             this.state.mail,
             this.state.pass
         ).then(function(user){
             alert("Signed in");
         }).catch(function(error){
-            alert(error.message)})
+            alert(error.message)});
     }                 
     
 }
 
 class SignedInComponent extends React.Component{
     constructor(props){
-		super(props)
-        this.state = {mail:"", pass:""}
+		super(props);
+        this.state = {mail:"", pass:""};
 	}
 
     render(){
@@ -114,7 +115,7 @@ class SignedInComponent extends React.Component{
     }
     
     logOut(e) {
-        firebase.auth().signOut()
+        myFirebase.auth().signOut();
     }
     
 }
