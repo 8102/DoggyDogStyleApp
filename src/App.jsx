@@ -62,17 +62,13 @@ export default class App extends React.Component{
 
     return (
       <div>
-<<<<<<< HEAD
-        <div id="content">
-            {content}
-        </div>
-=======
         <div className="header">
           <h1>{header}</h1>
         </div>
-        {content}
->>>>>>> 02432c07643d4ef5eed00c2429210c2f046ce97b
-        <div className="footer">
+        <div id="content">
+            {content}
+        </div>
+*        <div className="footer">
           <ul className="footer-list" role="nav">
             <button onClick={this.first.bind(this)}>Events</button>
             <button onClick={this.second.bind(this)}>My Page</button>

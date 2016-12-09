@@ -57,10 +57,8 @@ class SignUpComponent extends React.Component{
                         </form>
                     </div>
                 </div>
-    )}
-    
-        )
-    }
+            )
+        }
 
     handleEmailChange(e) {
         this.setState({mail: e.target.value});
@@ -109,7 +107,6 @@ class SignedInComponent extends React.Component{
 
     logOut(e) {
         firebase.auth().signOut();
-        this.setState({auth:false})
     }
 
 }
