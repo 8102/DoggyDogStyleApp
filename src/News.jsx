@@ -1,6 +1,5 @@
 import React from 'react';
 import firebase from 'firebase';
-import Portal from 'react-portal';
 
 export default class News extends React.Component {
 
@@ -14,7 +13,7 @@ export default class News extends React.Component {
   }
 
   componentWillMount() {
-    firebase.auth().signInWithEmailAndPassword(
+/*    firebase.auth().signInWithEmailAndPassword(
 			"test@test.com",       "passpass"
 		).then(function(user) {
 			alert(user.email);
@@ -22,7 +21,7 @@ export default class News extends React.Component {
 			alert(error.message);
 			alert(error.code);
 		})
-
+*/
     var user = firebase.auth().currentUser;
     var data = {
       headline : "Blabla",
