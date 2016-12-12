@@ -12,26 +12,67 @@ export default class App extends React.Component{
 
   constructor(props){
     super(props);
-    this.state = {page: "main"};
+    this.state = {
+      page: "main",
+      selected: {
+        events: {},
+        myPage: {},
+        news: {},
+        map: {}
+      }
+    };
+
   }
 
   componentWillMount() {
   }
 
   first() {
-    this.setState({page: "events"});
+    this.setState({
+      page: "events",
+      selected: {
+        events: {"height": "100%"},
+        myPage: {},
+        news: {},
+        map: {}
+      }
+    });
   }
 
   second() {
-    this.setState({page: "myPage"});
+    this.setState({
+      page: "myPage",
+      selected: {
+        events: {},
+        myPage: {"height": "100%"},
+        news: {},
+        map: {}
+      }
+    });
   }
 
   third() {
-    this.setState({page: "map"});
+    this.setState({
+      page: "news",
+      selected: {
+        events: {},
+        myPage: {},
+        news: {"height": "100%"},
+        map: {}
+      }
+    });
   }
 
   fourth() {
-    this.setState({page: "news"});
+    this.setState({
+      page: "map",
+      selected: {
+        events: {},
+        myPage: {},
+        news: {},
+        map: {"height": "100%"}
+      }
+    });
   }
 
   render(){
@@ -65,17 +106,25 @@ export default class App extends React.Component{
         <div className="header">
             <img src="../logo.png" class="dogLogo"/>
             <h1>{header}</h1>
-            
+
         </div>
         <div id="content">
-            {content}
+          {content}
         </div>
        <div className="footer">
           <ul className="footer-list" role="nav">
-            <button onClick={this.first.bind(this)}>Events</button>
-            <button onClick={this.second.bind(this)}>My Page</button>
-            <button onClick={this.third.bind(this)}>Map</button>
-            <button onClick={this.fourth.bind(this)}>News</button>
+            <li>
+              <button id="Events" className="btn-block" style={this.state.selected.events} onClick={this.first.bind(this)}>Events</button>
+            </li>
+            <li>
+              <button id="MyPage" className="btn-block" style={this.state.selected.myPage} onClick={this.second.bind(this)}>My Page</button>
+            </li>
+            <li>
+              <button id="News" className="btn-block" style={this.state.selected.news} onClick={this.third.bind(this)}>News</button>
+            </li>
+            <li>
+              <button id="Map" className="btn-block" style={this.state.selected.map} onClick={this.fourth.bind(this)}>Map</button>
+            </li>
           </ul>
         </div>
       </div>

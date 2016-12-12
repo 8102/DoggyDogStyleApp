@@ -2,26 +2,80 @@
   color: green;
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #15d880; /* Debug Background */
+/*  background: #EEEEEE;*/
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#content {
+  position: fixed;
+  top: 82px;
+  bottom: 62px;
+  left: 0;
+  right: 0;
+  background-color: #F63;
+  overflow: auto;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   height: 80px;
-  background: #15d880;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.footer-list button {
-  float: left;
-  list-style: none;
+.footer-list {
+  margin: 0;
+  padding: 0;
+  display: table;
+  table-layout: fixed;
   text-align: center;
-  background-color: #000000;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-list li
+{
+  list-style-type: none;
+  display: table-cell;
+  width: 25%;
+  height: 100%;
+  vertical-align: bottom;
+}
+
+
+.footer-list button {
   color: #ffffff;
-  margin-top: 10px;
-  margin-right: 10px;
-  width: 70px;
-  line-height: 30px;
+  height: 80%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.footer-list button.selected {
+  height: 100%;
+}
+
+.footer-list #Events {
+  background-color: #008081;
+}
+
+.footer-list #MyPage {
+  background-color: #fe0000;
+}
+
+.footer-list #Map {
+  background-color: #03fe00;
+}
+
+.footer-list #News {
+  background-color: #fed42a;
 }
 
 .box {
