@@ -63,7 +63,9 @@ export default class App extends React.Component{
     return (
       <div>
         <div className="header">
-          <h1>{header}</h1>
+            <img src="../logo.png" class="dogLogo"/>
+            <h1>{header}</h1>
+            
         </div>
         <div id="content">
             {content}
