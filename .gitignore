@@ -11,3 +11,9 @@ npm-debug.log
 
 # res
 resources/signing
+
+# Generated JS files
+www/debugHelpers.js
+www/debugHelpers.js.map
+www/index.js
+www/index.js.map

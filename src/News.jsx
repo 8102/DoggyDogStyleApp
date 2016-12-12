@@ -1,21 +1,40 @@
 import React from 'react';
 import firebase from 'firebase';
+import Portal from 'react-portal';
 
 export default class News extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {news: [], value: ''};
-    this.listStyle = {'listStyleType': 'none'};
-    // this.state = {page: "main"}
   }
 
-  componentWillUnmount(){
-    reference.off()
+  componentWillUnmount() {
+    firebase.database().ref("news/").off()
   }
 
-  componentWillMount(){
-    var reference = firebase.database().ref("messages/")
+  componentWillMount() {
+    firebase.auth().signInWithEmailAndPassword(
+			"test@test.com",       "passpass"
+		).then(function(user) {
+			alert(user.email);
+		}).catch(function(error) {
+			alert(error.message);
+			alert(error.code);
+		})
+
+    var user = firebase.auth().currentUser;
+    var data = {
+      headline : "Blabla",
+      smallDesc : "Small Description",
+      description : "This is a normal Description"
+    }
+    var newsKey = firebase.database().ref().child('news').push().key;
+    var updates = {};
+    updates['/news/' + newsKey] = data;
+    firebase.database().ref().update(updates);
+
+    var reference = firebase.database().ref("news/")
     var self = this;
     reference.on('value', function(snapshot){
       var newsArray = [];
@@ -28,14 +47,24 @@ export default class News extends React.Component {
     });
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    this.setState({contentToDisplay: true});
+  }
+
   render() {
     return (
         <div>
-          <ul style={this.listStyle}>
-            {this.state.news.map(function(curnew, index){
-              return <li key={index}><b>{curnew.name}</b>: {'\'' + curnew.message + '\''}</li>
-            })}
-          </ul>
+          {this.state.news.map(function(curnew, index){
+            console.log(curnew);
+            return (
+              <a style={{"display": "block"}} key={index} href="#">
+                <div className="smallArticle">
+                  {curnew.headline}: {curnew.smallDesc}
+                </div>
+              </a>
+            );
+          })}
         </div>
     )
   }
