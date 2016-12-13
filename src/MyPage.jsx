@@ -11,8 +11,11 @@ export default class MyPage extends React.Component {
 
   componentWillMount() {
     firebase.auth().onAuthStateChanged((user) => {
-      if(user)
-      this.setState({auth: true});
+      if(user) {
+        this.setState({auth: true});
+      } else {
+        this.setState({auth: false});
+      }
     })
   }
 
