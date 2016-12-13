@@ -27,7 +27,6 @@ export default class Article extends React.Component {
         display: {"display": "block"}
       });
     }
-    console.log("lol " + this.index);
   }
 
   render() {
@@ -40,7 +39,7 @@ export default class Article extends React.Component {
           <h2>{this.headline}</h2>
           <p>{this.smallDesc}</p>
         </div>
-        <div style={this.state.display}>
+        <div className="col-xs-12" style={this.state.display}>
           <p>
             {this.description}
           </p>
