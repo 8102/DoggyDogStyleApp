@@ -4,7 +4,10 @@
 }
 
 .smallArticle img {
-  width: 50%;
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .smallArticle .col-xs-8 {

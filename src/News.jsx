@@ -15,15 +15,6 @@ export default class News extends React.Component {
   }
 
   componentWillMount() {
-/*    firebase.auth().signInWithEmailAndPassword(
-			"test@test.com",       "passpass"
-		).then(function(user) {
-			alert(user.email);
-		}).catch(function(error) {
-			alert(error.message);
-			alert(error.code);
-		})
-*/
     var user = firebase.auth().currentUser;
 
     var reference = firebase.database().ref("news/");
