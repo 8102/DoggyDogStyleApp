@@ -15,6 +15,7 @@ module.exports = {
 			include: [
 				path.resolve(__dirname, "src")
 			],
+			exclude: './node_modules',
 			loader: "babel",
 			query: {
 				presets: [
@@ -33,7 +34,8 @@ module.exports = {
 					'react'
 				]
 			}
-		}, {
+		},
+		{
 			test: /\.css$/,
 			loader: "style-loader!css-loader"
 		},
