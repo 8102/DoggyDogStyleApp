@@ -107,8 +107,11 @@ export default class App extends React.Component{
           <div className="col-xs-4">
             <img src="./img/logo.png" className="dogLogo"/>
           </div>
-          <div className="col-xs-6">
+          <div className="col-xs-4">
             <h1>{header}</h1>
+          </div>
+          <div className="col-xs-4">
+            <img src="./img/QR.png" className="QRLogo"/>
           </div>
         </div>
         <div id="content">

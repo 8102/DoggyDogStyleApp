@@ -1,6 +1,8 @@
 import React from 'react';
 import firebase from 'firebase';
 
+import Article from './news/Article.jsx';
+
 export default class News extends React.Component {
 
   constructor(props) {
@@ -9,7 +11,7 @@ export default class News extends React.Component {
   }
 
   componentWillUnmount() {
-    firebase.database().ref("news/").off()
+    firebase.database().ref("news/").off();
   }
 
   componentWillMount() {
@@ -23,17 +25,8 @@ export default class News extends React.Component {
 		})
 */
     var user = firebase.auth().currentUser;
-    var data = {
-      headline : "Blabla",
-      smallDesc : "Small Description",
-      description : "This is a normal Description"
-    }
-    var newsKey = firebase.database().ref().child('news').push().key;
-    var updates = {};
-    updates['/news/' + newsKey] = data;
-    firebase.database().ref().update(updates);
 
-    var reference = firebase.database().ref("news/")
+    var reference = firebase.database().ref("news/");
     var self = this;
     reference.on('value', function(snapshot){
       var newsArray = [];
@@ -46,28 +39,18 @@ export default class News extends React.Component {
     });
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    this.setState({contentToDisplay: true});
-  }
-
   render() {
     return (
         <div>
           {this.state.news.map(function(curnew, index){
-            console.log(curnew);
             return (
-              <a style={{"display": "block"}} key={index} href="#">
-                <div className="smallArticle row">
-                  <div className="col-xs-4">
-                    <img src="./img/newsFav.jpeg" />
-                  </div>
-                  <div className="col-xs-8">
-                    <h2>{curnew.headline}</h2>
-                    <p>{curnew.smallDesc}</p>
-                  </div>
-                </div>
-              </a>
+              <Article
+                headline={curnew.headline}
+                smallDesc={curnew.smallDesc}
+                description={curnew.description}
+                index={index}
+                key={index}
+                />
             );
           })}
         </div>
