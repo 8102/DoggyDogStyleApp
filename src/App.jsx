@@ -6,6 +6,7 @@ import Events from './Events.jsx';
 import Maps from './Maps.jsx';
 import News from './News.jsx';
 import MyPage from './MyPage.jsx';
+import Qr from './Qr.jsx';
 import myFirebase from './FirebaseApp.jsx';
 
 export default class App extends React.Component{
@@ -74,18 +75,18 @@ export default class App extends React.Component{
       }
     });
   }
-    
-qr() {
+
+  qr() {
     this.setState({
-        page: "qr",
-        selected: {
-            events: {},
-            myPage: {},
-            news: {},
-            map: {"height": "100%"}
-        }   
-    })
-}
+      page: "qr",
+      selected: {
+        events: {},
+        myPage: {},
+        news: {},
+        map: {}
+      }
+    });
+  }
 
   render(){
     var content = <Events/>;
@@ -109,7 +110,7 @@ qr() {
         header = "News";
         break;
       case "qr":
-        content = <qrCode/>;
+        content = <Qr/>;
         header ="QR Code";
         break;
       default:
@@ -127,9 +128,9 @@ qr() {
             <h1>{header}</h1>
           </div>
           <div className="col-xs-4">
-            <a onClick={this.qr.bind(this)}>  
+            <a onClick={this.qr.bind(this)}>
                 <img src="./img/QR.png" className="QRLogo"/>
-            </a> 
+            </a>
         </div>
         </div>
         <div id="content">

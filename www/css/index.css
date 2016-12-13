@@ -137,3 +137,17 @@
 .contacts {
     height: 80%;
 }
+
+.QRLogo {
+    width: 50%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.qrCodeImg {
+    width: 100%;
+}
