@@ -11,7 +11,7 @@ export default class Article extends React.Component {
     this.index = this.props.index;
     this.state = {
       isClicked: false,
-      display: {"display": "none", "padding-right": "0"}
+      display: {"display": "none"}
     };
   }
 
@@ -32,7 +32,7 @@ export default class Article extends React.Component {
   render() {
     return (
       <div className="smallArticle" style={{"display": "block"}} key={this.index} onClick={this.handleClick.bind(this)}>
-        <div className="row" style={{"height": "100px"}}>
+        <div className="row preview" style={{"height": "100px"}}>
           <div className="col-xs-4">
             <img src="./img/newsFav.jpeg" />
           </div>
@@ -41,7 +41,7 @@ export default class Article extends React.Component {
             <p>{this.smallDesc}</p>
           </div>
         </div>
-        <div className="" style={this.state.display}>
+        <div className="normalDescription" style={this.state.display}>
           <p>
             {this.description}
           </p>

@@ -1,5 +1,5 @@
 .smallArticle {
-  background: #554466;
+  /*background: #554466;*/
   border-bottom: 1px solid yellow;
 }
 
@@ -19,4 +19,14 @@
 
 .smallArticle .col-xs-8 {
   padding-right: 0;
+}
+
+.normalDescription {
+  padding-right: 0;
+}
+
+.smallArticle .preview {
+  height: 100px;
+  margin-left: 0;
+  margin-right: 0;
 }

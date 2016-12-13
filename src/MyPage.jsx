@@ -21,7 +21,7 @@ export default class MyPage extends React.Component {
 
   render() {
     var content = null;
-    if (this.state.auth == true)
+    if (this.state.auth === true)
     content = <SignedInComponent/>;
     else
     content = <SignUpComponent/>;
@@ -29,7 +29,6 @@ export default class MyPage extends React.Component {
       <div id="mainContent">
         <div className="text-center">
           <div className="center-block">
-            <h1>Welcome on My Page !</h1>
             { content }
           </div>
         </div>
@@ -94,13 +93,15 @@ class SignUpComponent extends React.Component{
   class SignedInComponent extends React.Component{
     constructor(props){
       super(props);
-      this.state = {mail:"", pass:""};
+      var user = firebase.auth().currentUser;
+      this.state = {mail: user.email, pass:""};
     }
 
     render(){
       return(
         <div>
           <h1>Your Account</h1>
+          <h5>{this.state.mail}</h5>
           <Button onClick={this.logOut.bind(this)}>Sign out</Button>
         </div>
       )
