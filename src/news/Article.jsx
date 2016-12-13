@@ -11,7 +11,7 @@ export default class Article extends React.Component {
     this.index = this.props.index;
     this.state = {
       isClicked: false,
-      display: {"display": "none"}
+      display: {"display": "none", "padding-right": "0"}
     };
   }
 
@@ -31,15 +31,17 @@ export default class Article extends React.Component {
 
   render() {
     return (
-      <div className="smallArticle row" style={{"display": "block"}} key={this.index} onClick={this.handleClick.bind(this)}>
-        <div className="col-xs-4">
-          <img src="./img/newsFav.jpeg" />
+      <div className="smallArticle" style={{"display": "block"}} key={this.index} onClick={this.handleClick.bind(this)}>
+        <div className="row" style={{"height": "100px"}}>
+          <div className="col-xs-4">
+            <img src="./img/newsFav.jpeg" />
+          </div>
+          <div className="col-xs-8">
+            <h2>{this.headline}</h2>
+            <p>{this.smallDesc}</p>
+          </div>
         </div>
-        <div className="col-xs-8">
-          <h2>{this.headline}</h2>
-          <p>{this.smallDesc}</p>
-        </div>
-        <div className="col-xs-12" style={this.state.display}>
+        <div className="" style={this.state.display}>
           <p>
             {this.description}
           </p>
