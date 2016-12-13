@@ -4,6 +4,8 @@
 # Node
 npm-debug.log
 /node_modules
+.npm
+.node_repl_history
 
 # Cordova
 /platforms
@@ -17,3 +19,10 @@ www/debugHelpers.js
 www/debugHelpers.js.map
 www/index.js
 www/index.js.map
+
+# Bootstrap drawables
+www/*.woff2
+www/*.svg
+www/*.ttf
+www/*.eot
+www/*.woff
