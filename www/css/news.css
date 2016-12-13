@@ -4,10 +4,14 @@
 }
 
 .smallArticle img {
-  width: 75%;
+  height: 60%;
   display: block;
-  margin-left: auto;
+  margin-top: 20%;
+  margin-bottom: 20%;
+  margin-left: 10px;
   margin-right: auto;
+  background-position: center center;
+  text-align: center;
 }
 
 .smallArticle .col-xs-8 {

@@ -62,7 +62,7 @@ export default class events extends React.Component {
             </div>
           </AccordionItem>
           <AccordionItem
-            title="Auction"
+            title="Adopt"
             slug="Auction"
             titleClassName="auctionItem eventArticle"
             >
