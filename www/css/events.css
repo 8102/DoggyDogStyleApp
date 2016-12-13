@@ -3,7 +3,24 @@
     background-repeat: no-repeat;
     background-position-y: -10px;
     height: 110px;
+    width: 100%;
 }
+
+.pageantItem {
+    background-image: url('../img/events/obstaclePrev.jpeg');
+    background-repeat: no-repeat;
+    background-position-y: -10px;
+    height: 110px;
+}
+
+.auctionItem {
+    background-image: url('../img/events/obstaclePrev.jpeg');
+    background-repeat: no-repeat;
+    background-position-y: -10px;
+    height: 110px;
+}
+
+
 
 .eventArticle {
     filter: opacity(50%);

@@ -45,7 +45,7 @@ export default class events extends React.Component {
           <AccordionItem
             title="Pageant"
             slug="Pageant"
-            titleClassName="eventArticle"
+            titleClassName="pageantItem eventArticle"
             >
             <div>
               <p>
@@ -64,7 +64,7 @@ export default class events extends React.Component {
           <AccordionItem
             title="Auction"
             slug="Auction"
-            titleClassName="eventArticle"
+            titleClassName="auctionItem eventArticle"
             >
             <div>
               <p>

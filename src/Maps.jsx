@@ -9,7 +9,7 @@ export default class Maps extends React.Component {
   render() {
     return (
       <div>
-        <img src={'../www/img/map.png'}/>
+        <img src={'./img/map.png'}/>
       </div>
     )
   }
