@@ -19,7 +19,7 @@ export default class events extends React.Component {
     return (
       <div>
         <Accordion>
-          <AccordionItem title="Obstacle" slug="Obstacle">
+          <AccordionItem title="Obstacle" slug="Obstacle" titleClassName="obstacleItem">
             <div>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a velit non felis sollicitudin imperdiet. Curabitur dictum dui libero, at lacinia eros mattis id. Quisque quis orci ut erat faucibus gravida. Cras in ligula in metus convallis feugiat ut mattis ligula. Mauris scelerisque, libero ac scelerisque bibendum, nulla purus varius augue, non efficitur justo lacus in nulla. Aliquam leo mauris, ullamcorper eget nunc in, lobortis bibendum lorem. Proin volutpat enim tellus, condimentum mollis lectus fermentum ac.

@@ -58,8 +58,14 @@ export default class News extends React.Component {
             console.log(curnew);
             return (
               <a style={{"display": "block"}} key={index} href="#">
-                <div className="smallArticle">
-                  {curnew.headline}: {curnew.smallDesc}
+                <div className="smallArticle row">
+                  <div className="col-xs-4">
+                    <img src="./img/newsFav.jpeg" />
+                  </div>
+                  <div className="col-xs-8">
+                    <h2>{curnew.headline}</h2>
+                    <p>{curnew.smallDesc}</p>
+                  </div>
                 </div>
               </a>
             );

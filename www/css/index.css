@@ -13,6 +13,20 @@
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
+.header div {
+  height: 100%;
+}
+
+.header img {
+  width: 50%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 #content {
   position: fixed;
   top: 82px;
@@ -122,4 +136,23 @@
 
 .contacts {
   height: 80%;
+}
+
+.obstacleItem {
+  background-image: url('../img/events/obstaclePrev.jpeg');
+  background-repeat: no-repeat;
+  background-position-y: -10px;
+  height: 110px;
+}
+
+.smallArticle {
+  background: #554466;
+}
+
+.smallArticle img {
+  width: 50%;
+}
+
+.smallArticle .col-xs-8 {
+  padding-right: 0;
 }

@@ -15,7 +15,7 @@ export default class App extends React.Component{
     this.state = {
       page: "main",
       selected: {
-        events: {},
+        events: {"height": "100%"},
         myPage: {},
         news: {},
         map: {}
@@ -76,8 +76,8 @@ export default class App extends React.Component{
   }
 
   render(){
-    var content = <Main/>;
-    var header = "Main";
+    var content = <Events/>;
+    var header = "Events";
 
     switch (this.state.page) {
       case "events":
@@ -97,16 +97,19 @@ export default class App extends React.Component{
         header = "News";
         break;
       default:
-        content = <Main/>;
+        content = <Events/>;
         header = "Events";
     }
 
     return (
       <div>
-        <div className="header">
-            <img src="../logo.png" class="dogLogo"/>
+        <div className="header row">
+          <div className="col-xs-4">
+            <img src="./img/logo.png" className="dogLogo"/>
+          </div>
+          <div className="col-xs-6">
             <h1>{header}</h1>
-
+          </div>
         </div>
         <div id="content">
           {content}
