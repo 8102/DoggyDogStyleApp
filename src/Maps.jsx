@@ -9,6 +9,7 @@ export default class Maps extends React.Component {
   render() {
     return (
         <h1>Welcome on the Map page !</h1>
+        
     )
   }
 }

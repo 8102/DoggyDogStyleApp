@@ -50,8 +50,8 @@ class SignUpComponent extends React.Component{
         <div id="SignUp">
           <h1 id="title">Sign Up</h1>
           <form id="signUpForm">
-            <p>Email: <input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
-            <p>Pass: <input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
+            <p>Email<br/><input type="text" onChange={this.handleEmailChange.bind(this)}></input></p>
+            <p>Pass<br/><input type="password" onChange={this.handlePassChange.bind(this)}></input></p>
             <Button id="submit" type="submit" onClick={this.newUser.bind(this)}>Sign Up!</Button><br/>
             <p>Already have an account?</p>
             <Button id="submit" type="submit" onClick={this.authVerif.bind(this)}>Sign In</Button><br/>
