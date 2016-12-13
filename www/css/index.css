@@ -17,7 +17,7 @@
     height: 100%;
 }
 
-.header img {
+.dogLogo {
     width: 50%;
     position: absolute;
     margin: auto;
@@ -132,31 +132,4 @@
 
 .contacts {
     height: 80%;
-}
-
-.obstacleItem {
-    background-image: url('../img/events/obstaclePrev.jpeg');
-    background-repeat: no-repeat;
-    background-position-y: -10px;
-    height: 110px;
-}
-
-.center-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px;
-}
-
-.smallArticle {
-    background: #554466;
-}
-
-.smallArticle img {
-    width: 50%;
-}
-
-.smallArticle .col-xs-8 {
-    padding-right: 0;
 }

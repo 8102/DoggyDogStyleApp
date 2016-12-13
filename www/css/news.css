@@ -1,0 +1,12 @@
+.smallArticle {
+  background: #554466;
+  border-bottom: 1px solid yellow;
+}
+
+.smallArticle img {
+  width: 50%;
+}
+
+.smallArticle .col-xs-8 {
+  padding-right: 0;
+}
