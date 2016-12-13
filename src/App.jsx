@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
-
+import Bootstrap from 'react-bootstrap';
 import Main from './Main.jsx';
 import Events from './Events.jsx';
 import Maps from './Maps.jsx';
