@@ -74,6 +74,18 @@ export default class App extends React.Component{
       }
     });
   }
+    
+qr() {
+    this.setState({
+        page: "qr",
+        selected: {
+            events: {},
+            myPage: {},
+            news: {},
+            map: {"height": "100%"}
+        }   
+    })
+}
 
   render(){
     var content = <Events/>;
@@ -96,6 +108,10 @@ export default class App extends React.Component{
         content = <News/>;
         header = "News";
         break;
+      case "qr":
+        content = <qrCode/>;
+        header ="QR Code";
+        break;
       default:
         content = <Events/>;
         header = "Events";
@@ -111,8 +127,10 @@ export default class App extends React.Component{
             <h1>{header}</h1>
           </div>
           <div className="col-xs-4">
-            <img src="./img/QR.png" className="QRLogo"/>
-          </div>
+            <a onClick={this.qr.bind(this)}>  
+                <img src="./img/QR.png" className="QRLogo"/>
+            </a> 
+        </div>
         </div>
         <div id="content">
           {content}
