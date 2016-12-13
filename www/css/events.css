@@ -2,22 +2,24 @@
     background-image: url('../img/events/obstaclePrev.jpeg');
     background-repeat: no-repeat;
     background-position-y: -10px;
-    height: 110px;
-    width: 100%;
+    background-size: cover;
+    height: 180px;
 }
 
 .pageantItem {
-    background-image: url('../img/events/obstaclePrev.jpeg');
+    background-image: url('../img/events/pageant.jpg');
     background-repeat: no-repeat;
     background-position-y: -10px;
-    height: 110px;
+    background-size: cover;
+    height: 180px;
 }
 
 .auctionItem {
     background-image: url('../img/events/obstaclePrev.jpeg');
     background-repeat: no-repeat;
     background-position-y: -10px;
-    height: 110px;
+    background-size: cover;
+    height: 180px;
 }
 
 
